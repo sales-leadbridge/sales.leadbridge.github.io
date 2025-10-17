@@ -1,117 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LeadBridge - Business Leads Provider</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeadBridge — Premium Business Leads</title>
+
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f7fb;
-      color: #333;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    :root{
+      --bg-dark: #041426;
+      --overlay: rgba(4,14,36,0.55);
+      --gold: #FFD14C; /* main single heading/button tone (gold-white look) */
+      --gold-dark: #e6b800;
+      --white-soft: #f4f7fb;
+      --glass: rgba(255,255,255,0.06);
     }
-    header {
-      background-color: #1e40af;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      background: url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
+      min-height:100vh;
+      color:var(--white-soft);
+      position:relative;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
+
+    /* light overlay (small blur only) */
+    body::before{
+      content:""; position:fixed; inset:0;
+      background:var(--overlay);
+      backdrop-filter: blur(3px);
+      z-index:-1;
     }
-    nav {
-      background-color: #1e3a8a;
-      text-align: center;
-      padding: 10px 0;
+
+    /* NAV */
+    nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 6%; position:sticky; top:0; z-index:50;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
     }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
+    .logo-wrap{display:flex;align-items:center;gap:14px}
+    .logo-wrap img{height:42px;width:auto;border-radius:6px;object-fit:contain}
+    .brand{font-weight:700;letter-spacing:0.4px;color:var(--white-soft)}
+    .nav-links{display:flex;gap:26px;align-items:center}
+    .nav-links a{color:var(--white-soft);text-decoration:none;font-weight:600;transition:all .18s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{
+      background:linear-gradient(90deg,var(--gold),var(--gold-dark));
+      color:var(--bg-dark);
+      padding:10px 18px;border-radius:10px;font-weight:700;text-decoration:none;
+      box-shadow:0 8px 30px rgba(255,209,76,0.18);
     }
-    nav a:hover {
-      text-decoration: underline;
+
+    /* HERO */
+    .hero{
+      display:flex;gap:40px;align-items:center;justify-content:space-between;
+      padding:90px 6%; min-height:78vh;
     }
-    section {
-      padding: 50px 20px;
-      text-align: center;
+    .hero-left{flex:1;max-width:720px;animation:slideInLeft .9s ease both}
+    .hero-left .eyebrow{display:inline-block;color:#ffeab0;background:rgba(255,255,255,0.04);padding:6px 12px;border-radius:999px;margin-bottom:16px;font-weight:600}
+    /* Animated heading block */
+    .rotating-heading{
+      font-size:2.6rem; line-height:1.05; font-weight:800; margin-bottom:18px;
+      color:var(--gold);
+      /* subtle 3D emboss */
+      text-shadow:
+        0 1px 0 rgba(255,255,255,0.06),
+        0 3px 10px rgba(0,0,0,0.55),
+        0 6px 18px rgba(0,0,0,0.45);
     }
-    h2 {
-      color: #1e40af;
-      margin-bottom: 10px;
+    .rotating-heading .line { display:block }
+    .sub-lead{font-size:1.05rem;color:#f0f6ff; margin-bottom:20px; max-width:760px}
+
+    /* Right form card */
+    .hero-right{
+      width:460px; background:var(--glass); padding:28px; border-radius:14px;
+      box-shadow:0 20px 60px rgba(4,14,36,0.6); backdrop-filter:blur(8px);
+      animation:slideInRight .9s ease both;
     }
-    p {
-      max-width: 600px;
-      margin: 10px auto;
-      line-height: 1.6;
+    .hero-right h3{color:var(--gold); font-size:1.2rem;margin-bottom:6px}
+    .hero-right p{color:#fff8e6;font-weight:600;margin-bottom:14px}
+    .field{width:100%;padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.04);color:var(--white-soft);margin-bottom:12px;outline:none;font-size:0.98rem}
+    .field::placeholder{color:rgba(255,241,180,0.65)}
+    .btn-primary{
+      width:100%; padding:13px;border-radius:10px;border:none;cursor:pointer;
+      background:linear-gradient(90deg,var(--gold),var(--gold-dark)); color:var(--bg-dark);
+      font-weight:800; font-size:1rem; box-shadow:0 12px 40px rgba(255,209,76,0.18);
+      transition:transform .18s, box-shadow .18s;
     }
-    .btn {
-      background-color: #1e40af;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
+    .btn-primary:hover{transform:translateY(-4px); box-shadow:0 18px 50px rgba(255,209,76,0.26)}
+
+    /* small features below hero */
+    .features{display:flex;gap:18px; margin-top:22px; flex-wrap:wrap}
+    .feature{background:rgba(255,255,255,0.03);padding:10px 14px;border-radius:10px;font-weight:600;color:#fff9e6;font-size:0.95rem}
+
+    /* FOOTER */
+    footer{padding:28px 6%;text-align:center;color:#ffeecf;background:linear-gradient(90deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));margin-top:48px}
+
+    /* Animations for heading fade */
+    .heading-fade { opacity:0; transform: translateY(10px); transition: all 0.6s cubic-bezier(.2,.9,.2,1); }
+    .heading-fade.show { opacity:1; transform: translateY(0); }
+
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-40px)} to{opacity:1;transform:none} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:none} }
+
+    /* Responsive */
+    @media (max-width:960px){
+      .hero{flex-direction:column; padding:60px 6%}
+      .hero-right{width:100%}
+      .rotating-heading{font-size:2rem}
     }
-    .btn:hover {
-      background-color: #2563eb;
-    }
-    footer {
-      background-color: #111827;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 50px;
-      font-size: 14px;
+    @media (max-width:480px){
+      .rotating-heading{font-size:1.6rem}
+      nav{padding:12px 5%}
+      .nav-links{gap:12px}
+      .logo-wrap img{height:36px}
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>LeadBridge</h1>
-    <p>We Provide All Types of Business Leads</p>
-  </header>
-
+  <!-- NAV with logo (upload logo.png to repo root) -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <div class="logo-wrap">
+      <!-- Put your logo file as logo.png in repo root -->
+      <img src="logo.png" alt="LeadBridge logo" onerror="this.style.display='none'"/>
+      <div class="brand">LeadBridge</div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ourwork.html">Our Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a class="nav-cta" href="contact.html">Get Demo Leads</a>
+    </div>
   </nav>
 
-  <section id="home">
-    <h2>Welcome to LeadBridge</h2>
-    <p>We help businesses grow by providing high-quality verified leads for various industries — real estate, construction, digital marketing, and more.</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </section>
+  <!-- HERO -->
+  <main class="hero">
+    <div class="hero-left">
+      <div class="eyebrow">Premium Lead Services</div>
 
-  <section id="services">
-    <h2>Our Lead Services</h2>
-    <p>We provide targeted leads for:</p>
-    <p>✅ Real Estate Buyers & Sellers<br>
-       ✅ Construction Companies<br>
-       ✅ Home Renovation & Remodeling<br>
-       ✅ Digital Marketing Agencies<br>
-       ✅ Business to Business (B2B) Leads</p>
-    <a href="#contact" class="btn">Request Leads</a>
-  </section>
+      <!-- Rotating 2-line headings (single color, subtle 3D) -->
+      <div id="rotator" class="rotating-heading">
+        <span class="line heading-fade show" id="hline1">Unlock Quality Leads<br>That Drive Real Business Growth</span>
+        <span class="line heading-fade" id="hline2">Fuel Your Pipeline<br>With Verified B2B & B2C Prospects</span>
+        <span class="line heading-fade" id="hline3">Turn Connections into Clients<br>With Targeted Lead Solutions</span>
+      </div>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Interested in getting quality leads for your business? Contact us today.</p>
-    <p><b>Email:</b> sales.leadbridge@gmail.com<br>
-       <b>Phone:</b> +92-XXX-XXXXXXX<br>
-       <b>Website:</b> sales.leadbridge.github.io</p>
-  </section>
+      <p class="sub-lead">LeadBridge provides verified and targeted business leads for all industries — real estate, construction, marketing agencies, B2B services and more. We combine technology and manual verification to deliver prospects with real intent.</p>
 
-  <footer>
-    © 2025 LeadBridge | All Rights Reserved
-  </footer>
+      <div class="features">
+        <div class="feature">AI Targeting</div>
+        <div class="feature">Manual Verification</div>
+        <div class="feature">CSV/CRM Ready</div>
+        <div class="feature">Weekly Updates</div>
+      </div>
+    </div>
 
+    <aside class="hero-right">
+      <h3>Request Your Free Test Work</h3>
+      <p>Send a short brief — we will prepare a free demo list tailored to your target market.</p>
+      <form onsubmit="event.preventDefault(); window.location='mailto:sales.leadbridge@gmail.com?subject=LeadBridge%20Free%20Test%20Request';">
+        <input class="field" name="name" placeholder="Your name" required>
+        <input class="field" type="email" name="email" placeholder="Business email" required>
+        <input class="field" name="company" placeholder="Company / Industry">
+        <textarea class="field" name="message" placeholder="City, industry, quantity, budget (optional)"></textarea>
+        <button class="btn-primary" type="submit">Request Free Test</button>
+      </form>
+      <p style="font-size:13px;color:#fff8e6;margin-top:10px">Or email: <a href="mailto:sales.leadbridge@gmail.com" style="color:var(--gold)">sales.leadbridge@gmail.com</a></p>
+    </aside>
+  </main>
+
+  <footer>© 2025 <strong>LeadBridge</strong> • Premium Verified Business Leads • Phone: +92-XXX-XXXXXXX</footer>
+
+  <script>
+    // Rotating headings logic (fade transition). Single color retained in CSS.
+    (function(){
+      const ids = ['hline1','hline2','hline3'];
+      let i = 0;
+      setInterval(() => {
+        const current = document.getElementById(ids[i]);
+        const nextIndex = (i+1) % ids.length;
+        const next = document.getElementById(ids[nextIndex]);
+
+        // hide current
+        current.classList.remove('show');
+        // small delay to allow CSS transition
+        setTimeout(() => {
+          // ensure all hidden
+          ids.forEach(id => document.getElementById(id).classList.remove('show'));
+          // show next
+          next.classList.add('show');
+          i = nextIndex;
+        }, 350);
+      }, 3800); // change every 3.8s
+    })();
+  </script>
 </body>
 </html>
