@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LeadBridge — Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--teal1:#00c3ff;--teal2:#00e0c2;--gold:#FFD14C;--white:#f4f7fb;--max-w:1100px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;color:var(--white);background:url('assets/bg.jpg') center/cover fixed no-repeat;min-height:100vh}
+    body::before{content:"";position:fixed;inset:0;background:rgba(2,8,22,0.62);backdrop-filter:blur(3px);z-index:-1}
+    nav{display:flex;align-items:center;padding:18px 6%;gap:16px;position:sticky;top:0;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));z-index:40}
+    .nav-links{margin-left:28px;display:flex;gap:14px}
+    .wrap{max-width:var(--max-w);margin:48px auto;padding:26px;background:rgba(255,255,255,0.02);border-radius:12px}
+    h1{color:var(--teal2);font-size:1.5rem;margin-bottom:8px}
+    .cols{display:flex;gap:18px}
+    .col{flex:1;background:rgba(255,255,255,0.02);padding:18px;border-radius:12px}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.01);color:var(--white);margin-bottom:12px}
+    .send{padding:12px 16px;border-radius:10px;background:linear-gradient(90deg,var(--teal1),var(--teal2));color:#04202a;border:none;font-weight:800;cursor:pointer}
+    @media(max-width:980px){.cols{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="display:flex;align-items:center;gap:12px"><img src="assets/logo-new.png" alt="logo" style="height:44px"><strong>LeadBridge</strong></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ourwork.html">Our Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <h1>Contact & Request</h1>
+    <p style="color:#ddf8fb;margin-bottom:14px">Tell us your target: industry, locations, monthly volume and budget. We'll prepare a tailored demo list.</p>
+
+    <div class="cols">
+      <div class="col">
+        <p><strong>Email:</strong> <a href="mailto:sales@leadbridge.com" style="color:var(--teal2)">sales@leadbridge.com</a></p>
+        <p><strong>Phone:</strong> +92-XXX-XXXXXXX</p>
+        <p><strong>Address:</strong> Room 112, 207 Greenway Plaza, Houston, TX</p>
+        <p><strong>Hours:</strong> Mon–Fri 9:00–18:00 (CST)</p>
+      </div>
+
+      <div class="col">
+        <form onsubmit="event.preventDefault(); window.location='mailto:sales@leadbridge.com?subject=LeadBridge%20Contact%20Request';">
+          <input name="name" placeholder="Full name" required />
+          <input name="email" type="email" placeholder="Business email" required />
+          <input name="company" placeholder="Company / Industry" />
+          <textarea name="message" rows="5" placeholder="Target, cities, quantity, budget"></textarea>
+          <button class="send" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer style="padding:28px 6%;text-align:center;color:#cfeff2">© 2025 LeadBridge • <a href="mailto:sales@leadbridge.com" style="color:var(--teal2)">sales@leadbridge.com</a></footer>
+</body>
+</html>
