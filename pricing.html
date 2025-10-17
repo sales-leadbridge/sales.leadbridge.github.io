@@ -2,32 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LeadBridge — Pricing</title>
+  <title>Lead Bridge — Pricing</title>
+  <meta name="description" content="Simple, transparent pricing for verified leads." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--teal1:#00c3ff;--teal2:#00e0c2;--gold:#FFD14C;--white:#f4f7fb;--max-w:1100px}
+    :root{--gold:#FFD14C;--gold-deep:#e6b800;--white:#fff;--max-w:1100px}
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Poppins',sans-serif;color:var(--white);background:url('assets/bg.jpg') center/cover fixed no-repeat;min-height:100vh}
-    body::before{content:"";position:fixed;inset:0;background:rgba(2,8,22,0.62);backdrop-filter:blur(3px);z-index:-1}
-    nav{display:flex;align-items:center;padding:18px 6%;gap:16px;position:sticky;top:0;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));z-index:40}
-    .nav-links{margin-left:28px;display:flex;gap:14px}
-    .nav-links a{color:var(--white);text-decoration:none;padding:10px 16px;border-radius:10px;background:rgba(255,255,255,0.03);font-weight:700}
+    body{font-family:'Poppins',sans-serif;color:var(--white);background:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;min-height:100vh;position:relative}
+    body::before{content:"";position:fixed;inset:0;background:rgba(6,10,18,0.62);backdrop-filter:blur(3px);z-index:-1}
+    nav{display:flex;align-items:center;padding:18px 6%;gap:16px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));position:sticky;top:0;z-index:50}
+    .nav-links{margin-left:28px;display:flex;gap:12px}
+    .nav-links a{color:var(--white);text-decoration:none;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.03);font-weight:700}
     .wrap{max-width:var(--max-w);margin:48px auto;padding:26px;background:rgba(255,255,255,0.02);border-radius:12px}
     h1{color:var(--gold);font-size:1.5rem;margin-bottom:10px}
-    p.lead{color:#ddf8fb;line-height:1.7}
+    p.lead{color:#fff6da;line-height:1.7}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
-    .plan{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03);transition:transform .18s}
-    .plan:hover{transform:translateY(-8px)}
-    .tag{display:inline-block;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--teal1),var(--teal2));color:#04202a;font-weight:800}
-    .price{font-size:1.6rem;color:var(--teal2);font-weight:800;margin:8px 0}
-    .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--teal1),var(--teal2));color:#04202a;font-weight:800;text-decoration:none}
+    .plan{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03);transition:transform .16s}
+    .plan:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+    .tag{display:inline-block;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold-deep));color:#08121b;font-weight:800}
+    .price{font-size:1.6rem;color:#fff;font-weight:800;margin:8px 0}
+    .cta{display:inline-block;margin-top:12px;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--gold),var(--gold-deep));color:#08121b;font-weight:800;text-decoration:none}
     @media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}}
     @media(max-width:640px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <nav>
-    <div style="display:flex;align-items:center;gap:12px"><img src="assets/logo-new.png" alt="logo" style="height:44px"><strong>LeadBridge</strong></div>
+    <div style="display:flex;align-items:center;gap:12px"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=200&q=60" alt="logo" style="height:44px;border-radius:8px"><strong>Lead Bridge</strong></div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="ourwork.html">Our Work</a>
@@ -37,45 +38,45 @@
   </nav>
 
   <main class="wrap">
-    <h1>Pricing — Simple & Transparent</h1>
-    <p class="lead">Choose a plan that fits your outreach needs. All plans include verified contacts, segmentation and weekly refreshes.</p>
+    <h1>Pricing — Simple, Scalable Plans</h1>
+    <p class="lead">Transparent options to match the pace of your growth. Each plan delivers verified, segmented leads and regular updates so your team can run high-impact outreach.</p>
 
     <div class="grid" role="list">
-      <div class="plan">
+      <div class="plan" role="listitem">
         <div class="tag">Starter</div>
-        <div class="price">$89 / mo</div>
-        <ul style="color:#dff9fb;line-height:1.7">
+        <div class="price">$89 / month</div>
+        <ul style="color:#fff6da;line-height:1.7">
           <li>Up to 250 verified leads</li>
-          <li>Basic targeting & CSV</li>
-          <li>Weekly refresh</li>
+          <li>Basic targeting (city/industry)</li>
+          <li>CSV export + weekly refresh</li>
         </ul>
-        <a class="cta" href="contact.html">Choose Starter</a>
+        <a class="cta" href="mailto:davidleadbridge@gmail.com?subject=Starter%20Plan%20Inquiry">Choose Starter</a>
       </div>
 
-      <div class="plan">
+      <div class="plan" role="listitem">
         <div class="tag">Professional</div>
-        <div class="price">$169 / mo</div>
-        <ul style="color:#dff9fb;line-height:1.7">
+        <div class="price">$169 / month</div>
+        <ul style="color:#fff6da;line-height:1.7">
           <li>800+ verified leads</li>
           <li>Advanced filters & enrichment</li>
-          <li>Segmented lists + support</li>
+          <li>Segmentation + priority support</li>
         </ul>
-        <a class="cta" href="contact.html">Choose Professional</a>
+        <a class="cta" href="mailto:davidleadbridge@gmail.com?subject=Professional%20Plan%20Inquiry">Choose Professional</a>
       </div>
 
-      <div class="plan">
+      <div class="plan" role="listitem">
         <div class="tag">Enterprise</div>
         <div class="price">Custom</div>
-        <ul style="color:#dff9fb;line-height:1.7">
-          <li>Large-scale targeting</li>
-          <li>API / CRM integration</li>
-          <li>Dedicated account manager</li>
+        <ul style="color:#fff6da;line-height:1.7">
+          <li>Large-scale targeting & API</li>
+          <li>CRM integration & automation</li>
+          <li>Dedicated account team</li>
         </ul>
-        <a class="cta" href="contact.html">Request Quote</a>
+        <a class="cta" href="mailto:davidleadbridge@gmail.com?subject=Enterprise%20Plan%20Inquiry">Request Quote</a>
       </div>
     </div>
   </main>
 
-  <footer style="padding:28px 6%;text-align:center;color:#cfeff2">© 2025 LeadBridge • <a href="mailto:sales@leadbridge.com" style="color:var(--teal2)">sales@leadbridge.com</a></footer>
+  <footer style="padding:28px 6%;text-align:center;color:#ffefd1">© 2025 Lead Bridge • <a href="mailto:davidleadbridge@gmail.com" style="color:var(--gold)">davidleadbridge@gmail.com</a></footer>
 </body>
 </html>
