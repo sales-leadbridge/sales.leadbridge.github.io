@@ -2,29 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LeadBridge — Our Work</title>
+  <title>Lead Bridge — Our Work</title>
+  <meta name="description" content="Lead Bridge process: Discovery, Collection, Validation, Enrichment, Delivery." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--teal1:#00c3ff;--teal2:#00e0c2;--gold:#FFD14C;--white:#f4f7fb;--max-w:1100px}
+    :root{
+      --gold:#FFD14C;
+      --gold-deep:#e6b800;
+      --white:#fff;
+      --bg-overlay: rgba(6,10,18,0.62);
+      --panel: rgba(255,255,255,0.03);
+      --max-w:1100px;
+    }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Poppins',sans-serif;color:var(--white);background:url('assets/bg.jpg') center/cover fixed no-repeat;min-height:100vh}
-    body::before{content:"";position:fixed;inset:0;background:rgba(2,8,22,0.62);backdrop-filter:blur(3px);z-index:-1}
-    nav{display:flex;align-items:center;padding:18px 6%;gap:16px;position:sticky;top:0;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));z-index:40}
-    .brand img{height:44px}
-    .nav-links{margin-left:28px;display:flex;gap:14px}
-    .nav-links a{color:var(--white);text-decoration:none;padding:10px 16px;border-radius:10px;background:rgba(255,255,255,0.03);font-weight:700}
-    .nav-links a:hover{background:linear-gradient(90deg,var(--teal1),var(--teal2));color:#04202a;transform:translateY(-3px)}
+    body{font-family:'Poppins',sans-serif;color:var(--white);background:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;min-height:100vh;position:relative}
+    body::before{content:"";position:fixed;inset:0;background:var(--bg-overlay);backdrop-filter:blur(3px);z-index:-1}
+    nav{display:flex;align-items:center;gap:14px;padding:18px 6%;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));position:sticky;top:0;z-index:50}
+    .brand img{height:44px;border-radius:8px}
+    .nav-links{margin-left:24px;display:flex;gap:12px}
+    .nav-links a{color:var(--white);text-decoration:none;padding:10px 14px;border-radius:10px;background:var(--panel);font-weight:700}
+    .nav-links a:hover{background:linear-gradient(90deg,var(--gold),var(--gold-deep));color:#08121b;transform:translateY(-3px)}
     .wrap{max-width:var(--max-w);margin:40px auto;padding:26px;background:rgba(255,255,255,0.02);border-radius:12px}
-    h1{color:var(--teal2);font-size:1.6rem;margin-bottom:10px}
-    p.lead{color:#ddf8fb;line-height:1.8}
+    h1{color:var(--gold);font-size:1.6rem;margin-bottom:10px}
+    p.lead{color:#fff6da;line-height:1.8}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
-    .step{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s}
-    .step:hover{transform:translateY(-6px)}
+    .step{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .16s}
+    .step:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.55)}
+    .step h3{color:var(--gold);margin-bottom:8px}
+    footer{padding:28px 6%;text-align:center;color:#ffefd1;margin-top:36px}
+    @media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <nav>
-    <div style="display:flex;align-items:center;gap:12px"><img src="assets/logo-new.png" alt="logo"><strong>LeadBridge</strong></div>
+    <div style="display:flex;align-items:center;gap:12px"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=200&q=60" alt="logo"><strong style="color:var(--white)">Lead Bridge</strong></div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="ourwork.html">Our Work</a>
@@ -34,19 +46,42 @@
   </nav>
 
   <main class="wrap">
-    <h1>How We Work — Process Overview</h1>
-    <p class="lead">We combine automated signals with human validation to deliver targeted leads that convert. Below is our repeatable process designed for scale and quality.</p>
+    <h1>How We Deliver High-Quality Leads</h1>
+    <p class="lead">Our process is designed for precision and scale. We blend advanced targeting algorithms, diverse data sources, and human verification so your sales team receives opportunities that are ready to engage.</p>
 
     <div class="grid" role="list">
-      <div class="step"><h3 style="color:var(--gold)">Discovery & ICP</h3><p>We define your ideal customer and campaign targets — geography, role, company size, and intent signals.</p></div>
-      <div class="step"><h3 style="color:var(--gold)">Multi-Source Collection</h3><p>Harvesting from public records, professional platforms, listings and marketing channels to build candidate lists.</p></div>
-      <div class="step"><h3 style="color:var(--gold)">Human Validation</h3><p>Phone & email checks plus role verification to remove bounce risks and find decision-makers.</p></div>
-      <div class="step"><h3 style="color:var(--gold)">Enrichment & Tagging</h3><p>Each lead is enriched with firmographics, tags and segmentation for targeted outreach.</p></div>
-      <div class="step"><h3 style="color:var(--gold)">Delivery Formats</h3><p>CSV, Google Sheets, or CRM-ready lists with campaign columns for fast execution.</p></div>
-      <div class="step"><h3 style="color:var(--gold)">Ongoing Support</h3><p>Weekly refreshes, sample previews, and optimization support to improve conversion.</p></div>
+      <div class="step" role="listitem">
+        <h3>1. Discovery & ICP</h3>
+        <p>We workshop your ideal customer profile and campaign objectives — geography, industries, revenue band, and decision maker roles — to ensure alignment before collection begins.</p>
+      </div>
+
+      <div class="step" role="listitem">
+        <h3>2. Multi-Source Collection</h3>
+        <p>We harvest candidate prospects from public registries, professional networks, market listings, and intent signals to build a robust candidate pool.</p>
+      </div>
+
+      <div class="step" role="listitem">
+        <h3>3. Human Validation</h3>
+        <p>Each record undergoes live validation — phone and email checks plus role confirmation — to reduce bounce rates and surface decision-makers.</p>
+      </div>
+
+      <div class="step" role="listitem">
+        <h3>4. Enrichment & Tagging</h3>
+        <p>We enrich records with firmographic data, title normalization and campaign tags so outreach can be hyper-relevant and segmented.</p>
+      </div>
+
+      <div class="step" role="listitem">
+        <h3>5. Delivery & Formats</h3>
+        <p>Delivered in CSV, Google Sheets or CRM-ready files with campaign-ready columns to make launch immediate and simple.</p>
+      </div>
+
+      <div class="step" role="listitem">
+        <h3>6. Ongoing Optimization</h3>
+        <p>Weekly refreshes, lead-performance insights and hands-on support improve conversion over time — we iterate until ROI moves.</p>
+      </div>
     </div>
   </main>
 
-  <footer style="padding:28px 6%;text-align:center;color:#cfeff2">© 2025 LeadBridge • Verified Leads • <a href="mailto:sales@leadbridge.com" style="color:var(--teal2)">sales@leadbridge.com</a></footer>
+  <footer>© 2025 Lead Bridge • Verified leads that convert • <a href="mailto:davidleadbridge@gmail.com" style="color:var(--gold)">davidleadbridge@gmail.com</a></footer>
 </body>
 </html>
