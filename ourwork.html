@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LeadBridge — Our Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--teal1:#00c3ff;--teal2:#00e0c2;--gold:#FFD14C;--white:#f4f7fb;--max-w:1100px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;color:var(--white);background:url('assets/bg.jpg') center/cover fixed no-repeat;min-height:100vh}
+    body::before{content:"";position:fixed;inset:0;background:rgba(2,8,22,0.62);backdrop-filter:blur(3px);z-index:-1}
+    nav{display:flex;align-items:center;padding:18px 6%;gap:16px;position:sticky;top:0;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));z-index:40}
+    .brand img{height:44px}
+    .nav-links{margin-left:28px;display:flex;gap:14px}
+    .nav-links a{color:var(--white);text-decoration:none;padding:10px 16px;border-radius:10px;background:rgba(255,255,255,0.03);font-weight:700}
+    .nav-links a:hover{background:linear-gradient(90deg,var(--teal1),var(--teal2));color:#04202a;transform:translateY(-3px)}
+    .wrap{max-width:var(--max-w);margin:40px auto;padding:26px;background:rgba(255,255,255,0.02);border-radius:12px}
+    h1{color:var(--teal2);font-size:1.6rem;margin-bottom:10px}
+    p.lead{color:#ddf8fb;line-height:1.8}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .step{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s}
+    .step:hover{transform:translateY(-6px)}
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="display:flex;align-items:center;gap:12px"><img src="assets/logo-new.png" alt="logo"><strong>LeadBridge</strong></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ourwork.html">Our Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <h1>How We Work — Process Overview</h1>
+    <p class="lead">We combine automated signals with human validation to deliver targeted leads that convert. Below is our repeatable process designed for scale and quality.</p>
+
+    <div class="grid" role="list">
+      <div class="step"><h3 style="color:var(--gold)">Discovery & ICP</h3><p>We define your ideal customer and campaign targets — geography, role, company size, and intent signals.</p></div>
+      <div class="step"><h3 style="color:var(--gold)">Multi-Source Collection</h3><p>Harvesting from public records, professional platforms, listings and marketing channels to build candidate lists.</p></div>
+      <div class="step"><h3 style="color:var(--gold)">Human Validation</h3><p>Phone & email checks plus role verification to remove bounce risks and find decision-makers.</p></div>
+      <div class="step"><h3 style="color:var(--gold)">Enrichment & Tagging</h3><p>Each lead is enriched with firmographics, tags and segmentation for targeted outreach.</p></div>
+      <div class="step"><h3 style="color:var(--gold)">Delivery Formats</h3><p>CSV, Google Sheets, or CRM-ready lists with campaign columns for fast execution.</p></div>
+      <div class="step"><h3 style="color:var(--gold)">Ongoing Support</h3><p>Weekly refreshes, sample previews, and optimization support to improve conversion.</p></div>
+    </div>
+  </main>
+
+  <footer style="padding:28px 6%;text-align:center;color:#cfeff2">© 2025 LeadBridge • Verified Leads • <a href="mailto:sales@leadbridge.com" style="color:var(--teal2)">sales@leadbridge.com</a></footer>
+</body>
+</html>
