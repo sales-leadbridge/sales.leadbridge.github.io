@@ -1,208 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LeadBridge — Smart Business Leads</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-:root {
-  --accent: #00ffff;   /* neon cyan */
-  --bg-dark: #041020;  /* dark blue-black */
-  --text: #e8f7ff;
-  --btn-bg: #00ffff;
-  --btn-text: #001020;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg-dark) url('https://images.unsplash.com/photo-1537432376769-00a5f9bb3e80?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 0.9rem; /* 20% smaller overall */
-}
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,20,0.7);
-  backdrop-filter:blur(5px);
-  z-index:-1;
-}
-nav {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:18px 6%; position:sticky; top:0; z-index:20;
-  background:rgba(0,10,30,0.8); border-bottom:1px solid rgba(0,255,255,0.2);
-}
-.logo {
-  font-size:1.4rem; font-weight:700; color:var(--accent);
-}
-.nav-links {
-  display:flex; gap:25px;
-}
-.nav-links a {
-  color:var(--text); text-decoration:none; font-weight:600;
-  transition:0.3s;
-}
-.nav-links a:hover { color:var(--accent); }
-
-.btn {
-  display:inline-block;
-  background:var(--btn-bg);
-  color:var(--btn-text);
-  padding:12px 22px;
-  border-radius:10px;
-  font-weight:700;
-  text-decoration:none;
-  transition:0.3s;
-}
-.btn:hover { transform:translateY(-3px); box-shadow:0 4px 15px rgba(0,255,255,0.3); }
-
-/* SECTIONS */
-section { padding:80px 6%; max-width:1100px; margin:auto; }
-h1, h2 { color:var(--accent); margin-bottom:14px; }
-p { margin-bottom:14px; }
-
-/* Hero Section */
-.hero {
-  text-align:center;
-  padding-top:100px;
-}
-.hero h1 {
-  font-size:2.4rem;
-  margin-bottom:14px;
-}
-.hero p { max-width:700px; margin:auto; }
-.hero .btn { margin-top:20px; }
-
-/* Section cards */
-.card {
-  background:rgba(255,255,255,0.04);
-  border-radius:12px;
-  padding:30px;
-  margin-top:30px;
-  box-shadow:0 10px 40px rgba(0,255,255,0.05);
-}
-
-/* Grid */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.item {
-  background:rgba(255,255,255,0.02);
-  padding:20px;
-  border-radius:10px;
-}
-.item h3 { color:var(--accent); margin-bottom:8px; }
-
-/* Form */
-form input, form textarea {
-  width:100%; padding:12px;
-  margin-bottom:10px;
-  border:none; border-radius:8px;
-  background:rgba(255,255,255,0.08);
-  color:#fff;
-}
-form button {
-  background:var(--accent);
-  color:var(--btn-text);
-  border:none;
-  padding:12px;
-  width:100%;
-  border-radius:8px;
-  font-weight:700;
-}
-
-/* Footer */
-footer {
-  text-align:center;
-  padding:25px;
-  background:rgba(0,10,20,0.8);
-  border-top:1px solid rgba(0,255,255,0.15);
-  color:#aee;
-}
-
-/* Animation text */
-.fade-text {
-  font-size:1.4rem;
-  color:var(--accent);
-  animation: glow 3s infinite alternate;
-}
-@keyframes glow {
-  from {opacity:0.6; text-shadow:0 0 10px var(--accent);}
-  to {opacity:1; text-shadow:0 0 25px var(--accent);}
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LeadBridge — Premium Verified Leads</title>
+  <meta name="description" content="LeadBridge — Verified B2B & B2C leads for scalable sales growth." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<nav>
-  <div class="logo">LeadBridge</div>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#ourwork">Our Work</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+  <!-- Header / Navigation -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="assets/logo-new.png" alt="LeadBridge logo" class="logo">
+        <div class="brand-text">
+          <span class="brand-title">LeadBridge</span>
+          <small class="brand-sub">Verified Leads • Faster Pipeline</small>
+        </div>
+      </div>
 
-<!-- HOME -->
-<section id="home" class="hero">
-  <h1>Boost Sales with Real Verified Leads</h1>
-  <p class="fade-text">Grow Faster • Close Smarter • Target Better</p>
-  <p>LeadBridge helps businesses find decision-makers and build stronger pipelines using verified data and predictive research. You focus on selling — we handle the leads.</p>
-  <a href="#contact" class="btn">Get Free Sample</a>
-</section>
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#ourwork">Our Work</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="#about">About Us</a>
+        <a class="nav-link" href="#testimonials">Testimonials</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
 
-<!-- OUR WORK -->
-<section id="ourwork">
-  <h1>Our Work</h1>
-  <p>We combine technology and human verification to deliver 100% verified and conversion-ready leads.</p>
-  <div class="grid">
-    <div class="item"><h3>Target Research</h3><p>We identify your audience using intent, location, and behavior patterns.</p></div>
-    <div class="item"><h3>Multi-Source Data</h3><p>Information is collected from verified networks and digital signals.</p></div>
-    <div class="item"><h3>Manual Validation</h3><p>Each lead is checked by experts before delivery.</p></div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <h1>Pricing Plans</h1>
-  <p>Flexible packages to match your business growth stage.</p>
-  <div class="grid">
-    <div class="item">
-      <h3>Starter — $99/mo</h3>
-      <p>300 verified leads, basic targeting, weekly updates.</p>
-      <a href="#contact" class="btn">Choose Starter</a>
+      <div class="header-ctas">
+        <a class="btn-solid" href="#contact">Get Leads</a>
+        <a class="btn-outline" href="#pricing">Instant Quote</a>
+      </div>
     </div>
-    <div class="item">
-      <h3>Professional — $199/mo</h3>
-      <p>800+ leads, enriched data, advanced targeting filters.</p>
-      <a href="#contact" class="btn">Choose Pro</a>
-    </div>
-    <div class="item">
-      <h3>Enterprise — Custom</h3>
-      <p>CRM integration, team dashboard, dedicated support.</p>
-      <a href="#contact" class="btn">Request Quote</a>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h1>Contact Us</h1>
-  <p>Tell us about your goals and we’ll send a free sample lead list within 24 hours.</p>
-  <form onsubmit="event.preventDefault(); window.location='mailto:sales.leadbridge@gmail.com?subject=LeadBridge%20Inquiry';">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <input type="text" placeholder="Company / Industry" />
-    <textarea placeholder="Message or Lead Requirements"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <!-- HERO -->
+  <section id="home" class="hero-section" aria-label="Hero">
+    <div class="hero-bg" style="background-image:url('assets/home.jpg');" aria-hidden="true"></div>
 
-<footer>© 2025 LeadBridge • Verified Business Leads • sales.leadbridge@gmail.com</footer>
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <div class="eyebrow">Premium Lead Intelligence</div>
+
+        <h1 class="hero-title" id="rotating-headline">Accelerate Your Growth with Smart B2B Leads</h1>
+
+        <p class="hero-sub">High-quality, verified leads delivered with segmentation and enrichment so your sales team reaches decision-makers faster. Human-validated contacts, CRM-ready exports, and campaign-ready tags.</p>
+
+        <div class="hero-actions">
+          <a class="btn-solid big" href="#contact">Request Free Sample</a>
+          <a class="btn-ghost" href="#ourwork">See Our Process</a>
+        </div>
+
+        <ul class="hero-features">
+          <li><strong>Verified Contacts</strong> — manual checks & enrichment</li>
+          <li><strong>CRM Ready</strong> — CSV/Sheets/HubSpot/Salesforce support</li>
+          <li><strong>Targeted</strong> — geo, industry, role & intent segments</li>
+        </ul>
+      </div>
+
+      <aside class="hero-right">
+        <div class="card request-card">
+          <h3>Request a Free Test</h3>
+          <form id="lead-request" onsubmit="event.preventDefault(); window.location='mailto:sales@leadbridge.com?subject=Free%20Lead%20Request';" aria-label="Request form">
+            <input type="text" name="name" placeholder="Full name" required>
+            <input type="email" name="email" placeholder="Business email" required>
+            <input type="text" name="company" placeholder="Company / Industry">
+            <textarea name="notes" rows="3" placeholder="Target, cities, volume, budget"></textarea>
+            <button class="btn-solid" type="submit">Request Test</button>
+          </form>
+        </div>
+
+        <div class="trust-panel">
+          <div class="trust-row">
+            <div class="trust-item"><strong>99%</strong><span>Delivery Accuracy</span></div>
+            <div class="trust-item"><strong>24h</strong><span>Sample Delivery</span></div>
+            <div class="trust-item"><strong>Support</strong><span>Dedicated Manager</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ABOUT / INTRO -->
+  <section id="about" class="section about-section">
+    <div class="bg-layer" style="background-image:url('assets/about.jpg');"></div>
+    <div class="container">
+      <div class="section-head">
+        <h2>About LeadBridge</h2>
+        <p class="lead">We are a team of data engineers and verification specialists building lists that book meetings. Our approach balances automated signals with human validation to keep your pipeline clean and conversion-ready.</p>
+      </div>
+
+      <div class="split-grid">
+        <div class="panel">
+          <h3>How we differ</h3>
+          <ul class="check-list">
+            <li><strong>Multi-source collection</strong> — professional networks, listings, registries</li>
+            <li><strong>Human validation</strong> — phone & email checks</li>
+            <li><strong>Enrichment</strong> — role, company size, budget signals</li>
+            <li><strong>Delivery</strong> — CSV, Google Sheets, CRM uploads</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Our guarantees</h3>
+          <p>We guarantee a minimum data freshness and a sample preview before delivery. If a list has an unexpected bounce rate, we replace or refresh it at our cost.</p>
+          <ol>
+            <li>Sample preview within 24 hours</li>
+            <li>Weekly refresh available</li>
+            <li>Dedicated success manager on enterprise plans</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR WORK (single-line "Our Work" layout as requested) -->
+  <section id="ourwork" class="section work-section">
+    <div class="bg-layer" style="background-image:url('assets/ourwork.jpg');"></div>
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Work</h2>
+        <p class="lead">Real projects, measurable outcomes — examples of how our lists lifted outreach and pipeline conversion.</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="case-card">
+          <header><h3>Discovery & ICP</h3></header>
+          <p>We collaborate to define your Ideal Customer Profile: geographies, industries, company sizes and decision-maker roles.</p>
+          <ul>
+            <li>Custom ICP workshops</li>
+            <li>Intent signal mapping</li>
+            <li>Top account selection</li>
+          </ul>
+        </article>
+
+        <article class="case-card">
+          <header><h3>Multi-source Collection</h3></header>
+          <p>We aggregate from multiple reputable sources and enrich the dataset with role and company attributes.</p>
+          <ul>
+            <li>Professional network signals</li>
+            <li>Public filings and directories</li>
+            <li>Privacy-respecting crawl & parsing</li>
+          </ul>
+        </article>
+
+        <article class="case-card">
+          <header><h3>Manual Validation</h3></header>
+          <p>Human verification reduces bounces and improves reply rates. We verify phone/email and role relevance.</p>
+          <ul>
+            <li>Phone validation</li>
+            <li>Email ping checks</li>
+            <li>Contact enrichment</li>
+          </ul>
+        </article>
+
+        <article class="case-card">
+          <header><h3>Delivery & Integration</h3></header>
+          <p>Deliver lists in the format you need, with tagging and columns that plug into your outreach flows.</p>
+          <ul>
+            <li>CSV & Google Sheets</li>
+            <li>CRM-ready format (HubSpot, Salesforce)</li>
+            <li>Custom columns & tags</li>
+          </ul>
+        </article>
+
+        <article class="case-card">
+          <header><h3>Reporting</h3></header>
+          <p>Weekly reports and support to iterate on targeting and improve conversion rates.</p>
+        </article>
+
+        <article class="case-card">
+          <header><h3>Ongoing Support</h3></header>
+          <p>Dedicated success manager for professional & enterprise plans to help integrate lists into workflows and campaigns.</p>
+        </article>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn-solid glow" href="#contact">Request Case Study</a>
+        <a class="btn-outline" href="#pricing">See Plans</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICES (three new feature sections) -->
+  <section id="services" class="section services-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Services & Capabilities</h2>
+        <p class="lead">End-to-end lead generation services tailored to your team and stack.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h4>Targeted List Building</h4>
+          <p>Hyper-targeted lists using role, geo and intent signals — designed to hit your ICP precisely.</p>
+          <ul>
+            <li>Role-level targeting</li>
+            <li>Firmographics & technographics</li>
+            <li>Intent-based segmentation</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h4>Validation & Enrichment</h4>
+          <p>Human verification and automated enrichment to maximize deliverability and personalization capability.</p>
+          <ul>
+            <li>Phone & email checks</li>
+            <li>Company size & budget tags</li>
+            <li>Decision-maker identification</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h4>Integration & Delivery</h4>
+          <p>Fast delivery in formats that plug into outreach tools and CRMs, plus optional API integrations.</p>
+          <ul>
+            <li>CSV / Sheets / CRM files</li>
+            <li>API-delivered lists (enterprise)</li>
+            <li>Custom column mapping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section pricing-section">
+    <div class="bg-layer" style="background-image:url('assets/pricing.jpg');"></div>
+    <div class="container">
+      <div class="section-head">
+        <h2>Pricing</h2>
+        <p class="lead">Transparent plans, real deliverables. Pick a starting point — scale up as needed.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="plan">
+          <div class="plan-head"><strong>Starter</strong></div>
+          <div class="price-amount">$89 <small>/ month</small></div>
+          <ul class="plan-features">
+            <li>Up to 250 verified leads</li>
+            <li>Basic targeting</li>
+            <li>CSV export</li>
+            <li>Email support</li>
+          </ul>
+          <a class="btn-solid" href="#contact">Choose Starter</a>
+        </div>
+
+        <div class="plan featured">
+          <div class="plan-head"><strong>Professional</strong></div>
+          <div class="price-amount">$169 <small>/ month</small></div>
+          <ul class="plan-features">
+            <li>800+ verified leads</li>
+            <li>Advanced targeting & enrichment</li>
+            <li>Segmented lists</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="btn-solid" href="#contact">Choose Professional</a>
+        </div>
+
+        <div class="plan">
+          <div class="plan-head"><strong>Enterprise</strong></div>
+          <div class="price-amount">Custom</div>
+          <ul class="plan-features">
+            <li>Large-scale delivery</li>
+            <li>API & CRM integration</li>
+            <li>Dedicated success manager</li>
+            <li>Custom SLAs</li>
+          </ul>
+          <a class="btn-solid" href="#contact">Request Quote</a>
+        </div>
+      </div>
+
+      <div class="faq-panel">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq">
+          <button class="faq-q">How fast will I get a sample?</button>
+          <div class="faq-a">Samples are typically delivered within 24 business hours after we receive your ICP and brief.</div>
+
+          <button class="faq-q">What payment methods do you support?</button>
+          <div class="faq-a">We accept card, ACH / bank transfer (for enterprise), and invoicing on approved terms.</div>
+
+          <button class="faq-q">Can you integrate with our CRM?</button>
+          <div class="faq-a">Yes — HubSpot, Salesforce and other CRMs are supported. Enterprise plans include integration help.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section testimonials-section">
+    <div class="bg-layer" style="background-image:url('assets/testimonials.jpg');"></div>
+    <div class="container">
+      <div class="section-head">
+        <h2>Testimonials</h2>
+        <p class="lead">What our clients say after using LeadBridge lists and workflows.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <blockquote class="testimonial">
+          <p>"LeadBridge helped our SDRs book 30% more demos in the first month. Lists were clean and the enrichment made personalization easy." — Head of Growth, SaaS</p>
+        </blockquote>
+
+        <blockquote class="testimonial">
+          <p>"Quality over quantity. The validation reduced our bounce rates and increased reply rates across campaigns." — Marketing Director, FinTech</p>
+        </blockquote>
+
+        <blockquote class="testimonial">
+          <p>"They delivered a custom segment that produced immediate pipeline — easy to integrate into our CRM." — VP Sales</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="section team-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Team</h2>
+        <p class="lead">A mix of data engineers, verification specialists and client success managers focused on B2B pipeline outcomes.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="member">
+          <img src="assets/logo-new.png" alt="Founder" class="avatar">
+          <h4>Founder & CEO</h4>
+          <p>10+ years in performance marketing and data-driven GTM.</p>
+        </div>
+
+        <div class="member">
+          <img src="assets/logo-new.png" alt="Head of Data" class="avatar">
+          <h4>Head of Data</h4>
+          <p>Leads collection, enrichment and scoring pipelines.</p>
+        </div>
+
+        <div class="member">
+          <img src="assets/logo-new.png" alt="Client Success" class="avatar">
+          <h4>Client Success</h4>
+          <p>Works directly with clients to optimize lists and workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="bg-layer" style="background-image:url('assets/contact.jpg');"></div>
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="lead">Tell us about your target and we’ll prepare a free sample list tailored to your needs.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-panel">
+          <h3>Get in touch</h3>
+          <p><strong>Email:</strong> <a href="mailto:sales@leadbridge.com">sales@leadbridge.com</a></p>
+          <p><strong>Phone:</strong> +92-XXX-XXXXXXX</p>
+          <p><strong>Address:</strong> Room 112, 207 Greenway Plaza, Houston, TX</p>
+          <div class="contact-ctas">
+            <a class="btn-solid" href="#contact">Schedule Demo</a>
+            <a class="btn-outline" href="#pricing">Instant Quote</a>
+          </div>
+        </div>
+
+        <div class="contact-form-panel">
+          <form onsubmit="event.preventDefault(); window.location='mailto:sales@leadbridge.com?subject=LeadBridge%20Contact%20Request';" aria-label="Contact form">
+            <input type="text" name="name" placeholder="Full name" required>
+            <input type="email" name="email" placeholder="Business email" required>
+            <input type="text" name="company" placeholder="Company / Industry">
+            <textarea name="message" rows="5" placeholder="Describe target, cities, quantity, budget"></textarea>
+            <div class="form-row">
+              <button class="btn-solid" type="submit">Send Message</button>
+              <a class="btn-outline" href="pricing.html#quote">Request Quote</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="assets/logo-new.png" alt="logo" class="footer-logo">
+        <div>© 2025 LeadBridge • Premium Verified Leads</div>
+      </div>
+
+      <div class="footer-right">
+        <nav class="footer-nav">
+          <a href="#home">Home</a>
+          <a href="#ourwork">Our Work</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // ROTATING HERO LINES (bold, zoom + glow)
+    (function(){
+      const lines = [
+        "Accelerate Your Growth with Smart B2B Leads",
+        "Verified Contacts That Convert Into Real Sales",
+        "Fuel Your Pipeline with Targeted Data & Insights"
+      ];
+      const el = document.getElementById('rotating-headline');
+      let i = 0;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { el.textContent = lines[0]; return; }
+      setInterval(() => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(-12px) scale(0.98)';
+        setTimeout(() => {
+          i = (i+1) % lines.length;
+          el.textContent = lines[i];
+          el.style.opacity = 1;
+          el.style.transform = 'translateY(0) scale(1)';
+        }, 420);
+      }, 3200);
+    })();
+
+    // FAQ accordion
+    document.addEventListener('click', function(e){
+      if(e.target.classList.contains('faq-q')){
+        const next = e.target.nextElementSibling;
+        if(next) next.style.display = next.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+
+    // Simple parallax background movement
+    (function(){
+      const speed = 0.24;
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        const bgLayers = document.querySelectorAll('.bg-layer, .hero-bg');
+        bgLayers.forEach(layer => {
+          layer.style.transform = `translateY(${y * speed}px) scale(1.02)`;
+        });
+      }, {passive:true});
+    })();
+  </script>
 </body>
 </html>
