@@ -1,216 +1,305 @@
+<!-- LeadBridge — Single Page (merged from your 4 pages) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Lead Bridge — Home</title>
-<meta name="description" content="Lead Bridge — Premium verified leads for all categories and trades." />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --gold:#FFD14C;
-    --gold-deep:#e6b800;
-    --dark1:#0b0f13;
-    --dark2:#141417;
-    --white:#ffffff;
-    --panel: rgba(255,255,255,0.03);
-    --max-w:1100px;
-    --btn-shadow: 0 18px 50px rgba(255,209,76,0.14);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%;font-family:'Poppins',system-ui,-apple-system;}
-  body{
-    color:var(--white);
-    background: linear-gradient(180deg, #0b0f13 0%, #121212 35%, #1b1206 100%);
-    min-height:100vh; -webkit-font-smoothing:antialiased;
-    position:relative;
-  }
-  /* subtle gold glow overlay */
-  body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background: radial-gradient(800px 400px at 10% 10%, rgba(255,209,76,0.06), transparent 10%),
-                radial-gradient(600px 300px at 90% 80%, rgba(255,160,50,0.03), transparent 8%);
-    z-index:-1;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeadBridge — Premium Leads</title>
 
-  /* NAV */
-  nav{display:flex;align-items:center;gap:18px;padding:18px 6%;position:sticky;top:0;z-index:60;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(0,0,0,0.04));backdrop-filter: blur(4px);}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand img{height:46px;width:auto;border-radius:8px;object-fit:contain}
-  .brand .title{font-weight:700;color:var(--white);letter-spacing:0.3px}
-  .nav-links{margin-left:28px;display:flex;gap:12px}
-  .nav-links a{color:var(--white);text-decoration:none;padding:10px 14px;border-radius:10px;background:var(--panel);font-weight:700;transition:all .16s}
-  .nav-links a:hover{background:linear-gradient(90deg,var(--gold),var(--gold-deep));color:#08121b;transform:translateY(-3px)}
-  .nav-cta{margin-left:auto;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--gold),var(--gold-deep));color:#08121b;font-weight:800;text-decoration:none;box-shadow:var(--btn-shadow);cursor:pointer}
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  .wrap{max-width:var(--max-w);margin:28px auto;padding:28px}
+  <style>
+    :root{
+      --accent-blue:#00C6FF;
+      --accent-gold:#FFD700;
+      --accent-purple:#9B59FF;
+      --accent-green:#2ECC71;
+      --bg-dark:#001122;
+      --glass: rgba(255,255,255,0.04);
+      --text:#eaf4ff;
+      --section-height:150vh; /* 1.5x tall sections on desktop */
+      --section-min:100vh;
+    }
 
-  /* HERO */
-  .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;min-height:74vh}
-  .eyebrow{display:inline-block;color:rgba(255,230,160,0.95);font-weight:700;margin-bottom:12px}
-  .rotator{font-weight:800;font-size:2.6rem;line-height:1.06;color:var(--gold);text-shadow:0 8px 30px rgba(0,0,0,0.6);margin-bottom:18px}
-  .lead{color:#fff7ea;max-width:68ch;font-size:1.05rem;margin-bottom:22px}
-  .actions{display:flex;gap:14px}
-  .btn{padding:12px 24px;border-radius:12px;border:none;font-weight:800;cursor:pointer;text-decoration:none}
-  .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-deep));color:#08121b;box-shadow:var(--btn-shadow)}
-  .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,0.06);color:var(--white)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:
+        linear-gradient(120deg, rgba(2,6,12,0.65), rgba(0,10,20,0.55)),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;
+    }
+    /* dim + blur overlay */
+    body::before{content:"";position:fixed;inset:0;background:rgba(2,8,14,0.6);backdrop-filter:blur(8px);z-index:-1}
 
-  /* card/form */
-  .card{background:rgba(255,255,255,0.03);padding:22px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6);backdrop-filter:blur(6px)}
-  .card h3{color:var(--gold);margin-bottom:8px}
-  input,textarea{width:100%;padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.02);color:var(--white);margin-bottom:12px;font-size:0.98rem}
-  input::placeholder, textarea::placeholder{color:rgba(255,255,255,0.85)}
-  .note{font-size:13px;color:rgba(255,244,210,0.9);margin-top:10px}
+    /* NAV */
+    nav{
+      position:sticky;top:0;z-index:60;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 6%;
+      background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      backdrop-filter:blur(6px);
+    }
+    .logo{font-weight:700;letter-spacing:0.6px}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{color:var(--text);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:all .2s}
+    .nav-links a:hover{color:var(--accent-blue);transform:translateY(-3px)}
+    .nav-links a.active{background:linear-gradient(90deg,var(--accent-blue),var(--accent-gold));color:#021a2b;font-weight:700}
 
-  /* features */
-  .features{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-  .feature{background:rgba(255,255,255,0.03);padding:10px 14px;border-radius:10px;font-weight:700;color:#fff8e6}
+    .cta{background:linear-gradient(90deg,var(--accent-blue),var(--accent-gold));padding:9px 16px;border-radius:10px;color:#021a2b;text-decoration:none;font-weight:700}
 
-  footer{padding:36px 6%;text-align:center;color:#ffefd1;margin-top:40px}
+    /* Section base */
+    section{padding:72px 6%;display:flex;align-items:center;gap:40px;min-height:var(--section-min); position:relative}
+    .hero{min-height:calc(var(--section-height));padding-top:90px;padding-bottom:90px}
+    .ourwork{min-height:calc(var(--section-height));padding-top:100px;padding-bottom:100px}
+    .pricing{min-height:calc(var(--section-height));padding-top:100px;padding-bottom:100px}
+    .contact{min-height:calc(var(--section-height));padding-top:100px;padding-bottom:100px}
 
-  /* modal (popup) */
-  .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,10,0.6);display:none;align-items:center;justify-content:center;z-index:200}
-  .modal{width:560px;max-width:92%;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:22px;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,0.7);transform:translateY(12px);opacity:0;transition:all .28s}
-  .modal.show{transform:none;opacity:1}
-  .modal h3{margin-bottom:6px;color:var(--gold)}
-  .close-btn{position:absolute;right:18px;top:14px;background:transparent;border:none;color:var(--white);font-size:20px;cursor:pointer}
+    /* Grid & layout */
+    .container{max-width:1200px;margin:0 auto;width:100%}
+    .hero-inner{display:flex;gap:40px;align-items:center}
+    .left{flex:1;animation:fadeLeft .9s ease both}
+    .left h1{font-size:3.2rem;line-height:1.02;margin-bottom:14px}
+    .left .accent{background:linear-gradient(90deg,var(--accent-blue),var(--accent-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .left p{max-width:720px;color:#d9e9ff;font-size:1.05rem;margin-bottom:20px}
+    .primary-btn{display:inline-block;background:linear-gradient(90deg,var(--accent-blue),var(--accent-gold));padding:12px 26px;border-radius:12px;color:#021a2b;font-weight:700;text-decoration:none}
 
-  /* small */
-  @media(max-width:980px){.hero{grid-template-columns:1fr;gap:20px}.rotator{font-size:2rem}}
-</style>
+    /* form card */
+    .right{width:440px;background:var(--glass);padding:28px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.6);backdrop-filter:blur(8px);animation:fadeRight .9s ease both}
+    .form-title{color:var(--accent-blue);font-weight:700;margin-bottom:8px}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.02);color:var(--text);margin-bottom:12px;outline:2px solid transparent;transition:.18s}
+    input:focus,textarea:focus{outline:2px solid rgba(0,198,255,0.12)}
+    .send{background:var(--accent-blue);color:#021a2b;padding:12px;border-radius:10px;border:none;font-weight:700;cursor:pointer;width:100%}
+
+    /* Our Work */
+    .card{background:rgba(255,255,255,0.03);padding:36px;border-radius:14px;box-shadow:0 14px 60px rgba(0,0,0,0.6)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+    .item{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;min-height:150px}
+    .item h3{color:#fff;margin-bottom:8px}
+    .item p{color:#dfefff;font-size:0.95rem}
+
+    /* Pricing */
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+    .plan{padding:26px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));text-align:left}
+    .tag{display:inline-block;padding:8px 14px;border-radius:999px;background:linear-gradient(90deg,var(--accent-purple),#6ee7b7);color:#041029;font-weight:700;margin-bottom:14px}
+    .price{font-size:2rem;font-weight:800;margin:8px 0;color:#fff}
+    ul{margin:14px 0;color:#e8dcff;line-height:1.8}
+    .choose{display:inline-block;margin-top:12px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-gold));color:#021a2b;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700}
+
+    /* Contact layout */
+    .two{display:flex;gap:28px}
+    .two .left, .two .right{flex:1;padding:18px}
+    .contact-card{background:rgba(255,255,255,0.03);padding:26px;border-radius:12px}
+    .btn{background:linear-gradient(90deg,var(--accent-green),var(--accent-blue));color:#033;display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Footer */
+    footer{padding:26px 6%;text-align:center;color:#c7dbff;background:linear-gradient(90deg,rgba(0,0,0,0.12),rgba(0,0,0,0.04));position:relative;z-index:20}
+
+    /* small screens */
+    @media(max-width:980px){
+      .hero-inner{flex-direction:column}
+      .right{width:100%}
+      .grid-3{grid-template-columns:1fr}
+      .plans{grid-template-columns:1fr}
+      .two{flex-direction:column}
+      section{padding:48px 6%}
+      :root{--section-height:120vh}
+    }
+
+    /* animations */
+    @keyframes fadeLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+    @keyframes fadeRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+    .fade-up{opacity:0;transform:translateY(18px);transition:all .7s ease}
+    .fade-up.show{opacity:1;transform:none}
+
+    /* small helpers */
+    .muted{color:#cfeeff;font-size:0.95rem}
+    a.inline{color:var(--accent-blue);text-decoration:none}
+
+  </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <nav>
-    <div class="brand">
-      <img src="assets/logo-new.png" alt="Lead Bridge logo" onerror="this.style.display='none'">
-      <div class="title">Lead Bridge</div>
-    </div>
-
+    <div class="logo">LeadBridge</div>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="ourwork.html">Our Work</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="contact.html">Contact</a>
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#work" class="nav-link">Our Work</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a class="cta" href="#contact">Get Demo Leads</a>
     </div>
-
-    <div class="nav-cta" id="open-modal-btn">Request Free Sample Leads</div>
   </nav>
 
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <div class="eyebrow">Premium Lead Intelligence</div>
-
-        <div id="rotator" class="rotator">Unlock High-Intent Leads<br>That Accelerate Your Revenue</div>
-
-        <p class="lead">Lead Bridge connects your sales team with verified prospects across all categories and trades. We combine targeted signals and human validation to deliver lists that convert.</p>
-
-        <div class="actions">
-          <button class="btn btn-primary" id="open-modal-btn-2">Request Free Sample Leads</button>
-          <a class="btn btn-ghost" href="ourwork.html">How We Work</a>
-        </div>
-
-        <div class="features" aria-hidden="true">
-          <div class="feature">Verified Contacts</div>
-          <div class="feature">Industry Segments</div>
-          <div class="feature">CRM Ready</div>
+  <!-- HERO / HOME -->
+  <section id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="left">
+        <h1>Your Quality Marketing Assistant — <span class="accent">Success</span></h1>
+        <p><strong>LeadBridge</strong> delivers verified, targeted business leads so you can focus on closing deals. We serve real estate, construction, digital agencies, B2B sellers, and more — providing up-to-date prospects with contact info and buyer-intent signals.</p>
+        <p class="muted">Why choose us? AI-driven targeting • manual verification • industry segmentation • weekly updates.</p>
+        <div style="margin-top:18px">
+          <a class="primary-btn" href="#contact">Hire Us</a>
+          <a class="primary-btn" href="#work" style="margin-left:12px;background:linear-gradient(90deg,var(--accent-purple),var(--accent-blue))">See How We Work</a>
         </div>
       </div>
 
-      <aside class="card">
-        <h3>Try a Free Demo List</h3>
-        <p style="color:#fff6d6;margin-bottom:10px">Send a short brief — target cities, industry and volume — and we'll return a tailored sample list.</p>
-
-        <form onsubmit="event.preventDefault(); submitModalForm(this)">
-          <input name="name" placeholder="Your full name" required />
-          <input name="email" type="email" placeholder="Business email" required />
-          <input name="company" placeholder="Company / Industry" />
-          <textarea name="message" rows="4" placeholder="Target cities, volume, budget (optional)"></textarea>
-          <button class="btn btn-primary" type="submit">Request Free Sample Leads</button>
+      <aside class="right" aria-labelledby="form-title">
+        <div id="form-title" class="form-title">Let's start with a <strong>FREE TEST WORK</strong></div>
+        <form onsubmit="event.preventDefault(); window.location='mailto:sales.leadbridge@gmail.com?subject=LeadBridge%20Demo%20Request';" class="fade-up">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Business E-mail" required />
+          <input type="text" name="company" placeholder="Company / Industry" />
+          <textarea name="message" placeholder="Tell us what leads you need (city, industry, budget)"></textarea>
+          <button class="send" type="submit">Request Free Test</button>
         </form>
-
-        <div class="note">Or email: <a href="mailto:davidleadbridge@gmail.com" style="color:var(--gold)">davidleadbridge@gmail.com</a></div>
+        <p style="font-size:13px;color:#bfe9ff;margin-top:12px">Or email: <a href="mailto:sales.leadbridge@gmail.com" class="inline">sales.leadbridge@gmail.com</a></p>
       </aside>
-    </section>
-  </main>
-
-  <!-- modal popup -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Request Free Sample Leads">
-      <button class="close-btn" id="closeModal">&times;</button>
-      <h3>Request Free Sample Leads</h3>
-      <p style="color:#fff7e6;margin-bottom:12px">Fill this quick form and we'll send a tailored sample list.</p>
-
-      <form id="modalForm" onsubmit="event.preventDefault(); submitModalForm(this)">
-        <input name="name" placeholder="Full name" required />
-        <input name="email" type="email" placeholder="Business email" required />
-        <input name="company" placeholder="Company / Industry" />
-        <textarea name="message" rows="4" placeholder="Target, cities, quantity, budget"></textarea>
-        <button class="btn btn-primary" type="submit">Send Request</button>
-      </form>
     </div>
-  </div>
+  </section>
 
-  <footer>© 2025 Lead Bridge • Lead generation business for all categories/trades • <a href="mailto:davidleadbridge@gmail.com" style="color:var(--gold)">davidleadbridge@gmail.com</a></footer>
+  <!-- OUR WORK -->
+  <section id="work" class="ourwork">
+    <div class="container">
+      <div class="card fade-up">
+        <h1 style="color:var(--accent-gold)">How We Deliver Results</h1>
+        <p><strong>LeadBridge</strong> combines data science with manual verification. Our process turns raw signals into real sales opportunities:</p>
 
-<script>
-  // Rotator
-  (function(){
-    const lines = [
-      "Unlock High-Intent Leads\nThat Accelerate Your Revenue",
-      "Fuel Your Pipeline\nWith Verified Decision-Makers",
-      "Turn Prospects Into Customers\nWith Targeted Lead Intelligence"
-    ];
-    const el = document.getElementById('rotator');
-    let i = 0;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce){ el.textContent = lines[0].replace('\n',' '); return; }
-    setInterval(()=> {
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(-8px)';
-      setTimeout(()=> {
-        i = (i+1) % lines.length;
-        el.innerText = lines[i];
-        el.style.opacity = 1;
-        el.style.transform = 'translateY(0)';
-      }, 420);
-    }, 3800);
-  })();
+        <div class="grid-3" style="margin-top:22px">
+          <div class="item"><h3>Targeting & Research</h3><p>We identify your ideal customer profile across geography, industry, behavior and intent signals to target prospects that match your goals.</p></div>
+          <div class="item"><h3>Multi-Source Collection</h3><p>Data is pulled from verified public records, professional networks, listing platforms, and marketing channels — ensuring breadth and accuracy.</p></div>
+          <div class="item"><h3>Manual Verification</h3><p>Every lead is validated — phone/email checks, business verification, and enrichment (company size, budget, decision-maker).</p></div>
 
-  // Modal open/close
-  const modalBackdrop = document.getElementById('modalBackdrop');
-  const openButtons = [document.getElementById('open-modal-btn'), document.getElementById('open-modal-btn-2')];
-  openButtons.forEach(b => b && b.addEventListener('click', ()=> {
-    modalBackdrop.style.display = 'flex';
-    setTimeout(()=> modalBackdrop.querySelector('.modal').classList.add('show'), 20);
-    modalBackdrop.setAttribute('aria-hidden','false');
-    // focus first input
-    const first = modalBackdrop.querySelector('input[name="name"]');
-    if(first) first.focus();
-  }));
-  document.getElementById('closeModal').addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', (e)=> { if(e.target === modalBackdrop) closeModal(); });
-  function closeModal(){
-    const m = modalBackdrop.querySelector('.modal');
-    m.classList.remove('show');
-    setTimeout(()=> { modalBackdrop.style.display = 'none'; modalBackdrop.setAttribute('aria-hidden','true'); }, 260);
-  }
+          <div class="item"><h3>Delivery & Segmentation</h3><p>Leads are delivered in CSV or CRM-ready formats with segmentation tags so your sales team can run focused outreach immediately.</p></div>
+          <div class="item"><h3>Weekly Updates</h3><p>We refresh lists and remove bounced contacts to keep your pipeline clean and conversion-ready.</p></div>
+          <div class="item"><h3>Reporting & Support</h3><p>Each plan includes lead-sample previews and performance reports — plus direct support to tweak targeting for better ROI.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // submit via mailto (opens email client with filled body)
-  function submitModalForm(form){
-    const name = encodeURIComponent(form.name.value || '');
-    const email = encodeURIComponent(form.email.value || '');
-    const company = encodeURIComponent(form.company.value || '');
-    const message = encodeURIComponent(form.message.value || '');
-    const subject = encodeURIComponent('Request Free Sample Leads - Lead Bridge');
-    const body = encodeURIComponent(
-      `Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\nCompany/Industry: ${decodeURIComponent(company)}\nMessage: ${decodeURIComponent(message)}`
-    );
-    // build mailto
-    window.location.href = `mailto:davidleadbridge@gmail.com?subject=${subject}&body=${body}`;
-  }
-</script>
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+        <div style="max-width:720px">
+          <h1 style="color:var(--accent-purple)">Pricing Plans</h1>
+          <p style="color:#e8e0ff">Simple, transparent packages built to scale with your business. Every plan includes verified contacts, weekly refresh, and CSV/CRM delivery.</p>
+        </div>
+        <div style="min-width:260px;text-align:right">
+          <a class="choose" href="#contact">Contact for Custom Quote</a>
+        </div>
+      </div>
+
+      <div class="plans" style="margin-top:26px">
+        <div class="plan">
+          <div class="tag">Starter</div>
+          <div class="price">$99 / month</div>
+          <ul>
+            <li>Up to 300 verified leads</li>
+            <li>Basic targeting (city/industry)</li>
+            <li>CSV export & weekly updates</li>
+          </ul>
+          <a class="choose" href="#contact">Choose Starter</a>
+        </div>
+
+        <div class="plan" style="box-shadow:0 14px 60px rgba(155,89,255,0.12);transform:scale(1.02)">
+          <div class="tag">Professional</div>
+          <div class="price">$199 / month</div>
+          <ul>
+            <li>800+ verified leads</li>
+            <li>Advanced targeting & filters</li>
+            <li>Segmented lists + enrichment</li>
+          </ul>
+          <a class="choose" href="#contact">Choose Professional</a>
+        </div>
+
+        <div class="plan">
+          <div class="tag">Enterprise</div>
+          <div class="price">Custom</div>
+          <ul>
+            <li>Large-scale targeting</li>
+            <li>API/CRM integration</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a class="choose" href="#contact">Request Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div class="two fade-up">
+          <div class="left">
+            <h1 style="color:var(--accent-green)">Contact Us</h1>
+            <p>Ready to receive high-converting leads? Tell us your target industry, location, and monthly budget — we’ll prepare a free demo list tailored to your needs.</p>
+            <p><strong>Email:</strong> <a href="mailto:sales.leadbridge@gmail.com" class="inline">sales.leadbridge@gmail.com</a></p>
+            <p><strong>Phone:</strong> +92-XXX-XXXXXXX</p>
+            <p><strong>Address:</strong> Room 112, 207 Greenway Plaza, Houston, TX</p>
+            <p><strong>Business Hours:</strong> Mon-Fri 9:00 - 18:00 (CST)</p>
+          </div>
+
+          <div class="right">
+            <h2 style="color:#fff;margin-bottom:10px">Send a Message</h2>
+            <form onsubmit="event.preventDefault(); window.location='mailto:sales.leadbridge@gmail.com?subject=LeadBridge%20Contact%20Request';">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Your Email" required />
+              <input type="text" name="company" placeholder="Company / Industry" />
+              <textarea name="message" placeholder="Write your requirements (location, quantity, budget)"></textarea>
+              <button class="btn" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>© 2025 <strong>LeadBridge</strong> • Premium Verified Business Leads • Phone: +92-XXX-XXXXXXX • <a href="mailto:sales.leadbridge@gmail.com" class="inline">sales.leadbridge@gmail.com</a></footer>
+
+  <!-- JS: Active nav + reveal on scroll -->
+  <script>
+    // Smooth reveal for fade-up elements
+    (function(){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('show');
+        });
+      }, {threshold:0.12});
+      document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+    })();
+
+    // Active nav link based on section in viewport
+    (function(){
+      const links = document.querySelectorAll('.nav-link');
+      const sections = Array.from(links).map(a=>document.querySelector(a.getAttribute('href')));
+      function setActive(){
+        const idx = sections.findIndex(sec=>{
+          if(!sec) return false;
+          const rect = sec.getBoundingClientRect();
+          return rect.top <= window.innerHeight*0.45 && rect.bottom >= window.innerHeight*0.25;
+        });
+        links.forEach((a,i)=> a.classList.toggle('active', i===idx || (idx===-1 && i===0)));
+      }
+      setActive();
+      window.addEventListener('scroll', setActive, {passive:true});
+      window.addEventListener('resize', setActive);
+    })();
+
+    // Prevent external broken anchors on GitHub Pages when file path differs
+    // (If you host multi-page later, keep links consistent)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', ()=>{ /* lets browser handle smooth scroll */ });
+    });
+  </script>
 </body>
 </html>
